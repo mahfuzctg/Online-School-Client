@@ -22,10 +22,13 @@ const Navbar = () => {
       <li>
         <Link className="text-blue-50 no-underline"> Dashboard </Link>
       </li>
+      <li>
+        <Link className=" text-blue-50 no-underline">Login</Link>
+      </li>
     </>
   );
   return (
-    <div className="navbar h-2 bg-blue-900 text-blue-50 font-bold">
+    <nav className="navbar rounded-full w-11/12 mx-auto h-1 bg-blue-900 text-blue-50 font-bold">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,6 +54,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
+
         <img className="w-10 h-10 rounded-full block" src={logo} alt="" />
         <Link to="/" className="text-white no-underline">
           Online School
@@ -59,15 +63,9 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
-      <div className="navbar-end">
-        <Link
-          to="/login"
-          className="btn bg-orange-50 text-blue-900 hover:bg-orange-200"
-        >
-          Login
-        </Link>
-      </div>
-    </div>
+
+      <div className="navbar-end">Profile</div>
+    </nav>
   );
 };
 
