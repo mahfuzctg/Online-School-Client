@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   //
@@ -60,21 +61,43 @@ const SignUp = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
-                  {...register("password", { required: true })}
+                  type="password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                  })}
                   placeholder="password"
                   className="input input-bordered"
                 />
-                {errors.password && (
+                {errors.password?.type === "required" && (
                   <span className="text-red-500 text-sm">
                     Password is required
                   </span>
                 )}
+                {errors.password?.type === "minLength" && (
+                  <span className="text-red-500 text-sm">
+                    Password must be minimum 6 character
+                  </span>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <span className="text-red-500 text-sm">
+                    Password must be less then 20 character
+                  </span>
+                )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-blue-900 text-blue-50 hover:bg-blue-950">
-                  Register
-                </button>
+                <input
+                  className="btn bg-blue-900 text-blue-50 hover:bg-blue-950"
+                  type="submit"
+                  value="Register"
+                />
+                <p className="font-bold text-blue-700">
+                  Already register? Go to..
+                  <Link to="/login" className="no-underline font-bold">
+                    Login
+                  </Link>
+                </p>
               </div>
             </form>
           </div>

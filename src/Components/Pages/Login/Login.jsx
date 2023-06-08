@@ -36,8 +36,8 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <p>
-                New to...
+              <p className="font-bold text-blue-700 gap-2">
+                New to ? Please...
                 <Link to="/register" className="no-underline font-bold">
                   Register
                 </Link>
