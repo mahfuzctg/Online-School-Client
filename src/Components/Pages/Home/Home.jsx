@@ -1,9 +1,12 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home Page coming soon</h1>
+      jjj
+      <Banner></Banner>
     </div>
   );
 };
