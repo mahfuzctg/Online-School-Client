@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -17,6 +18,9 @@ const SignUp = () => {
   //
   return (
     <>
+      <Helmet>
+        <title>Online School | Register</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -66,6 +70,7 @@ const SignUp = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   placeholder="password"
                   className="input input-bordered"
@@ -83,6 +88,12 @@ const SignUp = () => {
                 {errors.password?.type === "maxLength" && (
                   <span className="text-red-500 text-sm">
                     Password must be less then 20 character
+                  </span>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <span className="text-red-500 text-sm">
+                    Password must one uppercase one lowercase one special
+                    character and one digits.
                   </span>
                 )}
               </div>
