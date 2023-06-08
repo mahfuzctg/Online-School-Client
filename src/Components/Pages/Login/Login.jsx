@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   return (
@@ -40,11 +41,12 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <p className="font-bold text-blue-700 gap-2">
-                New to ? Please...
+              <p className="font-bold text-blue-700">
+                New to ?
                 <Link to="/register" className="no-underline font-bold">
                   Register
                 </Link>
+                <SocialLogin></SocialLogin>
               </p>
             </div>
           </div>

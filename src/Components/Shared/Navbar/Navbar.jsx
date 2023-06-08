@@ -23,7 +23,9 @@ const Navbar = () => {
         <Link className="text-blue-50 no-underline"> Dashboard </Link>
       </li>
       <li>
-        <Link className=" text-blue-50 no-underline">Login</Link>
+        <Link to="/login" className=" text-blue-50 no-underline">
+          Login
+        </Link>
       </li>
     </>
   );
