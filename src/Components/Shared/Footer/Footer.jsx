@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer  max-w-screen-xl mx-auto p-10 bg-blue-900 text-blue-50">
+      <div className="footer  max-w-screen-xl mx-auto py-10 bg-blue-900 text-blue-50">
         <div>
           <svg
             width="50"
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer footer-center px-10 bg-blue-950 text-blue-50">
+      <div className="footer footer-center  bg-blue-950 text-blue-50">
         <div>
           <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
         </div>
