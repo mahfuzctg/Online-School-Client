@@ -10,10 +10,14 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link className="text-blue-50 no-underline">Instructors</Link>
+        <Link to="/instructors" className="text-blue-50 no-underline">
+          Instructors
+        </Link>
       </li>
       <li>
-        <Link className="text-blue-50 no-underline"> Classes</Link>
+        <Link to="/classes" className="text-blue-50 no-underline">
+          Classes
+        </Link>
       </li>
       <li>
         <Link className="text-blue-50 no-underline"> Dashboard </Link>
