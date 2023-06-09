@@ -2,8 +2,18 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <>
       <Helmet>
@@ -15,31 +25,45 @@ const Login = () => {
             <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
+                  {...register("email", { required: true })}
                   placeholder="email"
                   className="input input-bordered"
                 />
+                {errors.email && (
+                  <span className="text-red-500 text-sm">
+                    email is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  {...register("password", { required: true })}
                   placeholder="password"
                   className="input input-bordered"
                 />
+                {errors.password && (
+                  <span className="text-red-500 text-sm">
+                    Password is required
+                  </span>
+                )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-blue-900 text-blue-50 hover:bg-blue-950">
-                  Login
-                </button>
+                <input
+                  className="btn bg-blue-900 text-blue-50 hover:bg-blue-950"
+                  type="submit"
+                  value="Login"
+                />
               </div>
               <p className="font-bold text-blue-700">
                 New to ?
@@ -48,7 +72,7 @@ const Login = () => {
                 </Link>
                 <SocialLogin></SocialLogin>
               </p>
-            </div>
+            </form>
           </div>
         </div>
       </div>

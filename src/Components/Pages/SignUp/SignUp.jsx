@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext, auth } from "../../../Providers/AuthProviders";
 
 const SignUp = () => {
   //
@@ -11,8 +12,15 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  //Context
+  const { createUser } = useContext(AuthContext);
+  // onsubmit
   const onSubmit = (data) => {
     console.log(data);
+    createUser(data.email, data.password).then((res) => {
+      const loggedUser = res.user;
+      console.log(loggedUser);
+    });
   };
 
   //
@@ -36,7 +44,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   {...register("name", { required: true })}
-                  placeholder="email"
+                  placeholder="name"
                   className="input input-bordered"
                 />
                 {errors.name && (
