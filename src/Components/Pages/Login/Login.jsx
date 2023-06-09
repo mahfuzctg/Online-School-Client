@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const Login = () => {
   const {
@@ -10,9 +12,25 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  const from = location.state?.from?.pathname || "/";
   const onSubmit = (data) => {
     console.log(data);
+
+    logIn(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+        Swal.fire("User login successfully.");
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <>

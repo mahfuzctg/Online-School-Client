@@ -1,11 +1,16 @@
-import React, { useCallback, useContext } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { AuthContext, auth } from "../../../Providers/AuthProviders";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   //
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -14,13 +19,20 @@ const SignUp = () => {
 
   //Context
   const { createUser } = useContext(AuthContext);
+
   // onsubmit
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email, data.password).then((res) => {
-      const loggedUser = res.user;
-      console.log(loggedUser);
-    });
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        navigate(from, { replace: true });
+        console.log(loggedUser);
+        Swal.fire("Registered successful.");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   //

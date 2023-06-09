@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
   if (loading) {
-    return <>Loading.......</>;
+    return <span className="loading loading-spinner text-error"></span>;
   }
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };

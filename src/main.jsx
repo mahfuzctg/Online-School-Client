@@ -6,7 +6,6 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./Components/Routes/Routes.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProviders from "./Providers/AuthProviders";
-import Classes from "./Components/Pages/Clasess/Classes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
