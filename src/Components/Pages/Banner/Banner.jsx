@@ -5,20 +5,22 @@ import slide2 from "../../../assets/slides/slide-2.jpg";
 import slide3 from "../../../assets/slides/slide-3.jpg";
 const Banner = () => {
   return (
-    <Carousel>
-      <div className="">
-        <img src={slide1} />
-        <p className="legend">Slide 1</p>
-      </div>
-      <div className="">
-        <img src={slide2} />
-        <p className="legend">Slide 1</p>
-      </div>
-      <div className="">
-        <img src={slide3} />
-        <p className="legend">Slide 1</p>
-      </div>
-    </Carousel>
+    <div>
+      <Carousel>
+        <div className="">
+          <img src={slide1} />
+          <p className="legend">Slide 1</p>
+        </div>
+        <div className="">
+          <img src={slide2} />
+          <p className="legend">Slide 1</p>
+        </div>
+        <div className="">
+          <img src={slide3} />
+          <p className="legend">Slide 1</p>
+        </div>
+      </Carousel>
+    </div>
   );
 };
 
