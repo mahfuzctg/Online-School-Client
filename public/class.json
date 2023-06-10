@@ -1,0 +1,84 @@
+[
+  {
+    "_id": "642c155b2c4774f05c36ee7c",
+    "Image": "english_class1.jpg",
+    "Name": "Beginner English",
+    "Instructor name": "John Smith",
+    "Available seats": 10,
+    "Price": 50.1,
+    "category": "popular",
+    "price": 14.5
+  },
+
+  {
+    "_id": "642c155b2c4774f05c36ee7a",
+    "Image": "english_class2.jpg",
+    "Name": "Intermediate English",
+    "Instructor name": "Emily Johnson",
+    "Available seats": 5,
+    "Price": 7.5,
+    "category": "popular",
+    "price": 14.5
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class3.jpg",
+    "Name": "Advanced English",
+    "Instructor name": "Emily Johnson",
+    "Available seats": 8,
+    "Price": 100,
+    "category": "popular",
+    "price": 12.5
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class3.jpg",
+    "Name": "Advanced English",
+    "Instructor name": "Michael Brown",
+    "Available seats": 8,
+    "category": "popular",
+    "Price": 100
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class4.jpg",
+    "Name": "Business English",
+    "Instructor name": "Sarah Thompson",
+    "Available seats": 12,
+    "category": "popular",
+    "Price": 120
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class5.jpg",
+    "Name": "IELTS Preparation",
+    "Instructor name": "Robert Davis",
+    "Available seats": 7,
+    "category": "popular",
+    "Price": 90
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class6.jpg",
+    "Name": "Conversation Skills",
+    "Instructor name": "Olivia Wilson",
+    "Available seats": 10,
+    "Price": 60
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class7.jpg",
+    "Name": "Grammar Fundamentals",
+    "Instructor name": "Daniel Martinez",
+    "Available seats": 15,
+    "Price": 65
+  },
+  {
+    "_id": "642c155b2c4774f05c36ee8c",
+    "Image": "english_class8.jpg",
+    "Name": "Academic Writing",
+    "Instructor name": "Sophia Anderson",
+    "Available seats": 6,
+    "Price": 80
+  }
+]
