@@ -1,9 +1,9 @@
 [
   {
     "_id": "642c155b2c4774f05c36ee7c",
-    "Image": "english_class1.jpg",
+    "Image": "https://i.postimg.cc/j2m1v1k7/class1.png",
     "Name": "Beginner English",
-    "Instructor name": "John Smith",
+    "Instructor_name": "John Smith",
     "Available seats": 10,
     "Price": 50.1,
     "category": "popular",
@@ -12,73 +12,73 @@
 
   {
     "_id": "642c155b2c4774f05c36ee7a",
-    "Image": "english_class2.jpg",
+    "Image": "https://i.postimg.cc/gJBtk5pT/class2.jpg",
     "Name": "Intermediate English",
-    "Instructor name": "Emily Johnson",
-    "Available seats": 5,
+    "Instructor_name": "Emily Johnson",
+    "Available_seats": 5,
     "Price": 7.5,
     "category": "popular",
     "price": 14.5
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class3.jpg",
+    "Image": "https://i.postimg.cc/4dqCFnYy/class3.jpg",
     "Name": "Advanced English",
-    "Instructor name": "Emily Johnson",
-    "Available seats": 8,
+    "Instructor_name": "Emily Johnson",
+    "Available_seats": 8,
     "Price": 100,
     "category": "popular",
     "price": 12.5
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class3.jpg",
+    "Image": "https://i.postimg.cc/SxqBPBx6/class4.png",
     "Name": "Advanced English",
-    "Instructor name": "Michael Brown",
-    "Available seats": 8,
+    "Instructor_name": "Michael Brown",
+    "Available_seats": 8,
     "category": "popular",
     "Price": 100
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class4.jpg",
+    "Image": "https://i.postimg.cc/rmvbNbHt/class-5.jpg",
     "Name": "Business English",
-    "Instructor name": "Sarah Thompson",
-    "Available seats": 12,
+    "Instructor_name": "Sarah Thompson",
+    "Available_seats": 12,
     "category": "popular",
     "Price": 120
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class5.jpg",
+    "Image": "https://i.postimg.cc/2yhtcGp9/class6.jpg",
     "Name": "IELTS Preparation",
-    "Instructor name": "Robert Davis",
-    "Available seats": 7,
+    "Instructor_name": "Robert Davis",
+    "Available_seats": 7,
     "category": "popular",
     "Price": 90
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class6.jpg",
+    "Image": "https://i.postimg.cc/KzgpjfYc/class7.jpg",
     "Name": "Conversation Skills",
-    "Instructor name": "Olivia Wilson",
-    "Available seats": 10,
+    "Instructor_name": "Olivia Wilson",
+    "Available_seats": 10,
     "Price": 60
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class7.jpg",
+    "Image": "https://i.postimg.cc/tJq6wR80/class8.jpg",
     "Name": "Grammar Fundamentals",
-    "Instructor name": "Daniel Martinez",
-    "Available seats": 15,
+    "Instructor_name": "Daniel Martinez",
+    "Available_seats": 15,
     "Price": 65
   },
   {
     "_id": "642c155b2c4774f05c36ee8c",
-    "Image": "english_class8.jpg",
+    "Image": "https://i.postimg.cc/xdLbdb2D/class9.jpg",
     "Name": "Academic Writing",
-    "Instructor name": "Sophia Anderson",
-    "Available seats": 6,
+    "Instructor_name": "Sophia Anderson",
+    "Available_seats": 6,
     "Price": 80
   }
 ]
