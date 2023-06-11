@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/A12-logo.jpg";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import { FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/" className="text-blue-50 no-underline ">
+        <Link to="/" className="text-blue-50 no-underline">
           Home
         </Link>
       </li>
@@ -29,7 +30,9 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link className="text-blue-50 no-underline"> Dashboard </Link>
+        <Link to="/dashboard" className="text-blue-50 no-underline">
+          Dashboard{" "}
+        </Link>
       </li>
 
       {user ? (
@@ -51,7 +54,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar h-1 bg-blue-900 text-blue-50 font-bold">
+    <div className="navbar mx-auto h-1 bg-blue-900 text-blue-50 font-bold">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -87,7 +90,20 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
 
-      <div className="navbar-end">Profile</div>
+      <div className="navbar-end">
+        {user ? (
+          <div>
+            <img
+              className="w-10 rounded-full p-1 bg-red-600"
+              src={user?.photoURL}
+            />
+          </div>
+        ) : (
+          <>
+            <FaUserCircle></FaUserCircle>
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -6,11 +6,11 @@ import { CLASS } from "@egjs/flicking";
 
 const Main = () => {
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
-    </div>
+    </>
   );
 };
 

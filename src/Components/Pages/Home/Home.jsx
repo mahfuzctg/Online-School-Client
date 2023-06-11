@@ -12,7 +12,6 @@ const Home = () => {
         <title>Online School | Home</title>
       </Helmet>
       <Banner></Banner>
-
       <ExtraSection></ExtraSection>
       <PopularClass></PopularClass>
       <PopularInstructor></PopularInstructor>

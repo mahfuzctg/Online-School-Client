@@ -1,60 +1,51 @@
 [
   {
-    "_id": "101",
     "Image": "https://i.postimg.cc/vBmb01HJ/ins1.jpg",
     "Name": "Mr. Patel",
     "Email": "beginnerenglish@example.com"
   },
   {
-    "_id": "102",
     "Image": "https://i.postimg.cc/y8zKwp8X/ins2.jpg",
     "Name": "Ms. Williams",
     "Email": "intermediateenglish@example.com",
     "category": "popular"
   },
   {
-    "_id": "103",
     "Image": "https://i.postimg.cc/G29nkZXr/ins3.jpg",
     "Name": "Ms. Rodriguez",
     "Email": "advancedenglish@example.com",
     "category": "popular"
   },
   {
-    "_id": "104",
     "Image": "https://i.postimg.cc/nVjCx5p6/ins4.jpg",
     "Name": "Ms. Williia",
     "Email": "businessenglish@example.com",
     "category": "popular"
   },
   {
-    "_id": "105",
     "Image": "https://i.postimg.cc/dVB0ncjT/ins5.jpg",
     "Name": "Mrs. Clark",
     "Email": "ieltsprep@example.com",
     "category": "popular"
   },
   {
-    "_id": "106",
     "Image": "https://i.postimg.cc/xCWjqfnB/ins6.jpg",
     "Name": "Mr. Wilson",
     "Email": "conversationskills@example.com"
   },
   {
-    "_id": "107",
     "Image": "https://i.postimg.cc/90VSLKpr/ins7.jpg",
     "Name": "Ms. Thompson",
     "Email": "grammarfundamentals@example.com",
     "category": "popular"
   },
   {
-    "_id": "108",
     "Image": "https://i.postimg.cc/xdz4nnpX/ins8.png",
     "Name": "Mr. Johnson",
     "Email": "academicwriting@example.com",
     "category": "popular"
   },
   {
-    "_id": "109",
     "Image": "https://i.postimg.cc/sXC02qbw/ins9.jpg",
     "Name": "Ms. Smith",
     "Email": "pronunciationmastery@example.com"

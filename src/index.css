@@ -5,8 +5,8 @@
 #root {
   width: 96%;
   margin: auto;
-
   text-align: center;
-  background-color: rgb(195, 250, 255);
+  background-color: rgb(211, 211, 212);
   color: rgb(34, 0, 0);
+  padding: 0px 16px;
 }

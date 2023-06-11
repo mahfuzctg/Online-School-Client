@@ -1,6 +1,5 @@
 [
   {
-    "_id": "642c155b2c4774f05c36ee7c",
     "Image": "https://i.postimg.cc/j2m1v1k7/class1.png",
     "Name": "Beginner English",
     "Instructor_name": "John Smith",
@@ -11,7 +10,6 @@
   },
 
   {
-    "_id": "642c155b2c4774f05c36ee7a",
     "Image": "https://i.postimg.cc/gJBtk5pT/class2.jpg",
     "Name": "Intermediate English",
     "Instructor_name": "Emily Johnson",
@@ -21,7 +19,6 @@
     "price": 14.5
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/4dqCFnYy/class3.jpg",
     "Name": "Advanced English",
     "Instructor_name": "Emily Johnson",
@@ -31,7 +28,6 @@
     "price": 12.5
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/SxqBPBx6/class4.png",
     "Name": "Advanced English",
     "Instructor_name": "Michael Brown",
@@ -40,7 +36,6 @@
     "Price": 100
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/rmvbNbHt/class-5.jpg",
     "Name": "Business English",
     "Instructor_name": "Sarah Thompson",
@@ -49,7 +44,6 @@
     "Price": 120
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/2yhtcGp9/class6.jpg",
     "Name": "IELTS Preparation",
     "Instructor_name": "Robert Davis",
@@ -58,7 +52,6 @@
     "Price": 90
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/KzgpjfYc/class7.jpg",
     "Name": "Conversation Skills",
     "Instructor_name": "Olivia Wilson",
@@ -66,7 +59,6 @@
     "Price": 60
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/tJq6wR80/class8.jpg",
     "Name": "Grammar Fundamentals",
     "Instructor_name": "Daniel Martinez",
@@ -74,7 +66,6 @@
     "Price": 65
   },
   {
-    "_id": "642c155b2c4774f05c36ee8c",
     "Image": "https://i.postimg.cc/xdLbdb2D/class9.jpg",
     "Name": "Academic Writing",
     "Instructor_name": "Sophia Anderson",

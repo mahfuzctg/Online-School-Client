@@ -4,7 +4,7 @@ import PopularInsSub from "../popularInsSub/PopularInsSub";
 const PopularInstructor = () => {
   const [instructors, setInstructor] = useState([]);
   useEffect(() => {
-    fetch("instructor.json")
+    fetch("http://localhost:5000/instructors")
       .then((res) => res.json())
       .then((data) => {
         const popularInstructor = data.filter(
