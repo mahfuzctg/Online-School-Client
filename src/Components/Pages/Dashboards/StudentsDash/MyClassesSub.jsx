@@ -19,7 +19,7 @@ const MyClassesSub = ({ item }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://online-school-server-2s32wpurt-mahfuzctg.vercel.app/carts/${item._id}`,
+          `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/carts/${item._id}`,
           {
             method: "DELETE",
           }

@@ -33,7 +33,7 @@ const SignUp = () => {
           console.log("user update successfully");
           const saveUser = { name: data.name, email: data.email };
           fetch(
-            "https://online-school-server-2s32wpurt-mahfuzctg.vercel.app/users",
+            "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users",
             {
               method: "POST",
               headers: {

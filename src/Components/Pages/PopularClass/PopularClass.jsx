@@ -4,7 +4,7 @@ import PopularClassSub from "../../PopularClassSub/PopularClassSub";
 const PopularClass = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch("https://online-school-server-2s32wpurt-mahfuzctg.vercel.app/classes")
+    fetch("https://online-school-server-2xblin5so-mahfuzctg.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => {
         const popularClass = data.filter((item) => item.category === "popular");

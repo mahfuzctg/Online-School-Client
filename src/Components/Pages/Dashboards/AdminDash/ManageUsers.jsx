@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch(
-      "https://online-school-server-2s32wpurt-mahfuzctg.vercel.app/users"
+      "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users"
     );
     return res.json();
   });
