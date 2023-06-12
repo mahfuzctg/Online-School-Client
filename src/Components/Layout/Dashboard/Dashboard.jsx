@@ -1,22 +1,33 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-
+import {
+  FaHome,
+  FaReadme,
+  FaAddressCard,
+  FaHistory,
+  FaUserCircle,
+} from "react-icons/fa";
 const Dashboard = () => {
   const dashboardItem = (
     <>
       <li>
         <Link className=" no-underline" to="myhome">
-          Home
+          <FaHome></FaHome>Home
         </Link>
       </li>
       <li>
         <Link className=" no-underline" to="myclasses">
-          My Classes
+          <FaReadme></FaReadme> My Classes
         </Link>
       </li>
       <li>
-        <Link className=" no-underline" to="/myenrolled">
-          My Enrolled
+        <Link className=" no-underline" to="myenrolled">
+          <FaAddressCard></FaAddressCard> My Enrolled
+        </Link>
+      </li>
+      <li>
+        <Link className=" no-underline" to="myhistory">
+          <FaHistory></FaHistory> My History
         </Link>
       </li>
     </>
@@ -44,7 +55,9 @@ const Dashboard = () => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2">Dashboard</div>
+          <div className="flex-1 px-2 mx-2 text-blue-900">
+            <FaUserCircle></FaUserCircle> Dashboard
+          </div>
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal ">
               {/* Navbar menu content here */}
@@ -56,8 +69,8 @@ const Dashboard = () => {
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200">
+        <label htmlFor="my-drawer-3"></label>
+        <ul className="menu p-4 w-80 h-full bg-base-400">
           {/* Sidebar content here */}
           {dashboardItem}
         </ul>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/A12-logo.jpg";
 import { AuthContext } from "../../../Providers/AuthProviders";
-import { FaUserCircle } from "react-icons/fa";
+import { FaCartPlus, FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -14,6 +14,11 @@ const Navbar = () => {
   };
   const navItems = (
     <>
+      <li>
+        <Link to="/" className="text-red-500 rounded-full no-underline">
+          <FaCartPlus></FaCartPlus>+0
+        </Link>
+      </li>
       <li>
         <Link to="/" className="text-blue-50 no-underline">
           Home
@@ -37,7 +42,10 @@ const Navbar = () => {
 
       {user ? (
         <>
-          <button onClick={handleLogOut} className="btn btn-sm bg-red-700 ">
+          <button
+            onClick={handleLogOut}
+            className="btn btn-sm bg-red-700 rounded-full "
+          >
             LogOut
           </button>
         </>

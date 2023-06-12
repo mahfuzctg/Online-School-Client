@@ -8,6 +8,9 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import MyClasses from "../Pages/Dashboards/StudentsDash/MyClasses";
+import MyHome from "../Pages/Dashboards/StudentsDash/MyHome";
+import MyEnrolled from "../Pages/Dashboards/StudentsDash/MyEnrolled";
+import MyHistory from "../Pages/Dashboards/StudentsDash/MyHistory";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +50,18 @@ export const router = createBrowserRouter([
       {
         path: "myclasses",
         element: <MyClasses></MyClasses>,
+      },
+      {
+        path: "myhome",
+        element: <MyHome></MyHome>,
+      },
+      {
+        path: "myenrolled",
+        element: <MyEnrolled></MyEnrolled>,
+      },
+      {
+        path: "myhistory",
+        element: <MyHistory></MyHistory>,
       },
     ],
   },

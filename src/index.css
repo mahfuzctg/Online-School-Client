@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 #root {
-  width: 96%;
-  margin: auto;
+  /* width: 96%;
+  margin: auto; */
   text-align: center;
   background-color: rgb(211, 211, 212);
   color: rgb(34, 0, 0);
