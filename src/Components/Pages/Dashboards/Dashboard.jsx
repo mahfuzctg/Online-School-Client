@@ -8,6 +8,7 @@ import {
   FaUserCircle,
   FaArrowLeft,
 } from "react-icons/fa";
+import useAdmin from "../../../Hooks/useAdmin";
 const Dashboard = () => {
   const adminDashboard = (
     <>
@@ -65,7 +66,7 @@ const Dashboard = () => {
   );
 
   // is admin
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

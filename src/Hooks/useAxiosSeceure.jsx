@@ -1,46 +1,41 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "./AuthContext";
+import useAuth from "./useAuth";
 
 const useAxiosSecure = () => {
-  const [axiosSecure, setAxiosSecure] = useState(null);
+  const { logOut } = useAuth();
   const navigate = useNavigate();
-  const { logOut } = useContext(AuthContext);
+
+  const axiosSecure = axios.create({
+    baseURL: "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/",
+  });
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("access-token");
-
-    const instance = axios.create({
-      baseURL: "YOUR_BASE_URL_HERE",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
+    axiosSecure.interceptors.request.use((config) => {
+      const token = localStorage.getItem("access-token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
     });
 
-    instance.interceptors.response.use(
+    axiosSecure.interceptors.response.use(
       (response) => response,
-      (error) => {
-        if (error.response && [401, 403].includes(error.response.status)) {
-          // Logout and redirect to the login page
-          logoutAndRedirect();
+      async (error) => {
+        if (
+          error.response &&
+          (error.response.status === 401 || error.response.status === 403)
+        ) {
+          await logOut();
+          navigate("/login");
         }
         return Promise.reject(error);
       }
     );
+  }, [logOut, navigate, axiosSecure]);
 
-    setAxiosSecure(instance);
-  }, []);
-
-  const logoutAndRedirect = async () => {
-    // Call your logout method from the AuthContext asynchronously
-    await logOut();
-
-    // Redirect the user to the login page
-    navigate("/login");
-  };
-
-  return axiosSecure;
+  return [axiosSecure];
 };
 
 export default useAxiosSecure;

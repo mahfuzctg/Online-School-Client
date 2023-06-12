@@ -1,6 +1,6 @@
 ## Live Link :
 
-Hosted by -> [Online School]()
+Hosted by firebase-> [Online School](https://online-school-9a6a3.web.app/)
 
 ##Assignment_12 Online School
 listed here what i did in this project.
