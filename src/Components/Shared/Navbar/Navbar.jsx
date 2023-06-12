@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/A12-logo.jpg";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { FaCartPlus, FaUserCircle } from "react-icons/fa";
+import useCarts from "../../../Hooks/useCarts";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cards] = useCarts();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -16,7 +18,7 @@ const Navbar = () => {
     <>
       <li>
         <Link to="/" className="text-red-500 rounded-full no-underline">
-          <FaCartPlus></FaCartPlus>+0
+          <FaCartPlus></FaCartPlus>+{cards?.length || 0}
         </Link>
       </li>
       <li>
@@ -36,7 +38,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/dashboard" className="text-blue-50 no-underline">
-          Dashboard{" "}
+          Dashboard
         </Link>
       </li>
 

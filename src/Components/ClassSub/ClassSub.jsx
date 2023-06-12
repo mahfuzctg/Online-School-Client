@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCarts from "../../Hooks/useCarts";
 
 const ClassSub = ({ cla }) => {
   const { Name, Image, Instructor_name, Available_seats, Price, _id } = cla;
   const { user } = useContext(AuthContext);
+  const [, refetch] = useCarts();
   const navigate = useNavigate();
   const location = useLocation();
   const handleSelect = (cla) => {
@@ -28,6 +30,8 @@ const ClassSub = ({ cla }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
+            //
             Swal.fire("Successfully selected.");
           }
         });
