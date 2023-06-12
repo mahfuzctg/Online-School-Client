@@ -67,6 +67,7 @@ const Dashboard = () => {
 
   // is admin
   const [isAdmin] = useAdmin();
+  // const isAdmin = true;
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

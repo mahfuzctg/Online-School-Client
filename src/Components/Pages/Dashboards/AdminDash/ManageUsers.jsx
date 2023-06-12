@@ -3,32 +3,58 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { FaChalkboardTeacher, FaUserGraduate } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../Hooks/useAxiosSeceure";
 
 const ManageUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch(
-      "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users"
-    );
-    return res.json();
+    const res = await axiosSecure.get("/users");
+    return res.data;
   });
-  // handleAdmin
+
   const handleAdmin = (user) => {
     fetch(
-      `https://online-school-server-2s32wpurt-mahfuzctg.vercel.app/users/admin/${user._id}`,
+      `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users/admin/${user._id}`,
       {
         method: "PATCH",
       }
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.modifiedCount) {
           refetch();
-          Swal.fire(`${user.name} Made admin successful`);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an admin!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
   };
+
   // handleDelete
-  const handleDelete = () => {};
+  const handleDelete = (user) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to delete?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/users/${user._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <Helmet>
@@ -57,7 +83,7 @@ const ManageUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  {user.role === "admin" ? (
+                  {user?.role === "admin" ? (
                     "admin"
                   ) : (
                     <button
@@ -69,7 +95,7 @@ const ManageUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-sm">
+                  <button onClick={() => handle(user)} className="btn btn-sm">
                     <FaChalkboardTeacher></FaChalkboardTeacher>
                   </button>
                 </td>

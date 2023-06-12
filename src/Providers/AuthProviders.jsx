@@ -50,7 +50,6 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
 
-      setLoading(false);
       //token
       if (currentUser) {
         axios
@@ -63,6 +62,7 @@ const AuthProviders = ({ children }) => {
           .then((data) => {
             console.log(data.data.token);
             localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
           });
       } else {
         localStorage.removeItem("access-token");
