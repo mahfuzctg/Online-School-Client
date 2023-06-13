@@ -1,117 +1,197 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import {
-  FaHome,
-  FaReadme,
-  FaAddressCard,
-  FaHistory,
-  FaUserCircle,
-  FaArrowLeft,
-} from "react-icons/fa";
-import useAdmin from "../../../Hooks/useAdmin";
-const Dashboard = () => {
-  const adminDashboard = (
-    <>
-      <li>
-        <Link className=" no-underline" to="/">
-          <FaArrowLeft></FaArrowLeft>Back
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="adminHome">
-          <FaHome></FaHome>Home
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="manageClasses">
-          <FaReadme></FaReadme> Manage Classes
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="manageUsers">
-          <FaAddressCard></FaAddressCard> Manage Users
-        </Link>
-      </li>
-    </>
-  );
-  // User DashBoard
-  const UserDashboard = (
-    <>
-      <li>
-        <Link className=" no-underline" to="/">
-          <FaArrowLeft></FaArrowLeft>Back
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="myhome">
-          <FaHome></FaHome>Home
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="myclasses">
-          <FaReadme></FaReadme> My Classes
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="myenrolled">
-          <FaAddressCard></FaAddressCard> My Enrolled
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="myhistory">
-          <FaHistory></FaHistory> My History
-        </Link>
-      </li>
-    </>
-  );
 
-  // is admin
+import {
+  FaBook,
+  FaHistory,
+  FaHome,
+  FaListAlt,
+  FaPenSquare,
+  FaShoppingBag,
+  FaShoppingCart,
+  FaTasks,
+  FaUserSecret,
+  FaUsersCog,
+} from "react-icons/fa";
+import useAuth from "../../../Hooks/useAuth";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructors from "../../../Hooks/useInstructors";
+import { NavLink, Outlet } from "react-router-dom";
+
+const Dashboard = () => {
+  const { user } = useAuth();
   const [isAdmin] = useAdmin();
   // const isAdmin = true;
+  const [isInstructor] = useInstructors();
   return (
-    <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
-        {/* Navbar */}
-        <div className="w-full navbar bg-base-300">
-          <div className="flex-none lg:hidden">
-            <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
-          </div>
-          <div className="flex-1 px-2 mx-2 text-blue-900">
-            <FaUserCircle></FaUserCircle>
-            {isAdmin ? <>Admin Dashboard</> : <>User Dashboard</>}
-          </div>
-          <div className="flex-none hidden lg:block">
-            <ul className="menu menu-horizontal ">
-              {/* Navbar menu content here */}
-
-              {isAdmin ? <>{adminDashboard}</> : <> {UserDashboard}</>}
-            </ul>
-          </div>
+    <div>
+      <div className="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content w-full bg-indigo-50 flex flex-col mx-auto py-10">
+          <Outlet />
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            Open drawer
+          </label>
         </div>
-        {/* Page content here */}
-        <Outlet></Outlet>
-      </div>
-      <div className="drawer-side">
-        <label htmlFor="my-drawer-3"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-400">
-          {/* Sidebar content here */}
-          {isAdmin ? <>{adminDashboard}</> : <> {UserDashboard}</>}
-        </ul>
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+          <ul className="menu p-4 w-60 h-full bg-base-200 text-base-content">
+            <div className="flex justify-center">
+              <div className="avatar online">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+            </div>
+            <div className="text-center">
+              <h2 className="my-2 text-md font-semibold">{user.displayName}</h2>
+              <h2 className="text-md font-semibold">{user.email}</h2>
+            </div>
+
+            <hr className="my-4 border-t-2 border-black" />
+            {isAdmin &&
+              (isAdmin ? (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/manageClass"
+                      aria-label="ManageClasses"
+                      title="ManageClasses"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      <FaTasks />
+                      Manage Classes
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/ManageUsers"
+                      aria-label="ManageUsers"
+                      title="ManageUsers"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      <FaUsersCog />
+                      Manage Users
+                    </NavLink>
+                  </li>
+                </>
+              ) : null)}
+            {isInstructor &&
+              (isInstructor ? (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/addClass"
+                      aria-label="AddClass"
+                      title="AddClass"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      <FaPenSquare />
+                      Add a Class
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/MyClasses"
+                      aria-label="MyClasses"
+                      title="MyClasses"
+                      className={({ isActive }) =>
+                        isActive ? "active" : "default"
+                      }
+                    >
+                      <FaListAlt />
+                      My Classes
+                    </NavLink>
+                  </li>
+                </>
+              ) : null)}
+            {!isAdmin && !isInstructor ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/MySelectedClasses"
+                    aria-label="MySelectedClasses"
+                    title="MySelectedClasses"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    <FaShoppingCart />
+                    My Selected Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/MyEnrolledClasses"
+                    aria-label="MyEnrolledClasses"
+                    title="MyEnrolledClasses"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    <FaShoppingBag />
+                    My Enrolled Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/paymentHistory"
+                    aria-label="payment"
+                    title="payment"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                  >
+                    <FaHistory />
+                    Payment History
+                  </NavLink>
+                </li>
+              </>
+            ) : null}
+            <hr className="my-4 border-t-2 border-black" />
+            <li>
+              <NavLink
+                to="/"
+                aria-label="home"
+                title="home"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                <FaHome />
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/instructors"
+                aria-label="instructors"
+                title="instructors"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                <FaUserSecret />
+                Instructors
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/classes"
+                aria-label="classes"
+                title="classes"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                <FaBook />
+                Classes
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

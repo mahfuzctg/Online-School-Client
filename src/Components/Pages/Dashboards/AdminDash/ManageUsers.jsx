@@ -13,12 +13,9 @@ const ManageUsers = () => {
   });
 
   const handleAdmin = (user) => {
-    fetch(
-      `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users/admin/${user._id}`,
-      {
-        method: "PATCH",
-      }
-    )
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -34,12 +31,32 @@ const ManageUsers = () => {
         }
       });
   };
-
+  //  Handle Instructors
+  const handleMakeInstructors = (user) => {
+    fetch(`http://localhost:5000/users/instructors/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an Instructors Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   // handleDelete
   const handleDelete = (user) => {
+    console.log(user._id);
     Swal.fire({
       title: "Are you sure?",
-      text: "You want to delete?",
+      text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -47,11 +64,16 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/users/${user._id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            refetch();
-          }
-        });
+        fetch(`http://localhost:5000/users/${user._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your User has been deleted.", "success");
+            }
+          });
       }
     });
   };
@@ -95,9 +117,21 @@ const ManageUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button onClick={() => handle(user)} className="btn btn-sm">
-                    <FaChalkboardTeacher></FaChalkboardTeacher>
-                  </button>
+                  {user.role === "instructors" ? (
+                    <button
+                      disabled
+                      className="btn btn-ghost bg-gray-400  text-white"
+                    >
+                      <FaChalkboardTeacher />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleMakeInstructors(user)}
+                      className="btn btn-ghost bg-orange-600  text-white"
+                    >
+                      <FaChalkboardTeacher />
+                    </button>
+                  )}
                 </td>
                 <td>
                   <button

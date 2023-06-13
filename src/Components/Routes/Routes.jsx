@@ -54,35 +54,28 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "myclasses",
+        path: "/dashboard/MySelectedClasses",
         element: <MyClasses></MyClasses>,
       },
       {
-        path: "myhome",
-        element: <MyHome></MyHome>,
-      },
-      {
-        path: "myenrolled",
+        path: "/dashboard/MyEnrolledClasses",
         element: <MyEnrolled></MyEnrolled>,
       },
       {
-        path: "myhistory",
+        path: "/dashboard/paymentHistory",
         element: <MyHistory></MyHistory>,
       },
-      {
-        path: "payment",
-        element: <Payment></Payment>,
-      },
+
       // Admin
       {
-        path: "adminHome",
-        element: <AdminHome></AdminHome>,
+        path: "/dashboard/manageClass",
+        element: <ManageClasses></ManageClasses>,
       },
-      { path: "manageClasses", element: <ManageClasses></ManageClasses> },
       {
-        path: "manageUsers",
+        path: "/dashboard/ManageUsers",
         element: <ManageUsers></ManageUsers>,
       },
+      // instructor
     ],
   },
 ]);
