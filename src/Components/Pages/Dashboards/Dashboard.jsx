@@ -17,23 +17,18 @@ const Dashboard = () => {
         </Link>
       </li>
       <li>
-        <Link className=" no-underline" to="myhome">
+        <Link className=" no-underline" to="adminHome">
           <FaHome></FaHome>Home
         </Link>
       </li>
       <li>
-        <Link className=" no-underline" to="myclasses">
-          <FaReadme></FaReadme> My Classes
+        <Link className=" no-underline" to="manageClasses">
+          <FaReadme></FaReadme> Manage Classes
         </Link>
       </li>
       <li>
-        <Link className=" no-underline" to="myenrolled">
-          <FaAddressCard></FaAddressCard> My Enrolled
-        </Link>
-      </li>
-      <li>
-        <Link className=" no-underline" to="myhistory">
-          <FaHistory></FaHistory> My History
+        <Link className=" no-underline" to="manageUsers">
+          <FaAddressCard></FaAddressCard> Manage Users
         </Link>
       </li>
     </>
