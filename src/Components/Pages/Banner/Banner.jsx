@@ -9,15 +9,12 @@ const Banner = () => {
       <Carousel>
         <div className="">
           <img src={slide1} />
-          <p className="legend">Slide 1</p>
         </div>
         <div className="">
           <img src={slide2} />
-          <p className="legend">Slide 1</p>
         </div>
         <div className="">
           <img src={slide3} />
-          <p className="legend">Slide 1</p>
         </div>
       </Carousel>
     </div>

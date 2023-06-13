@@ -11,6 +11,8 @@ import MyClasses from "../Pages/Dashboards/StudentsDash/MyClasses";
 import MyHome from "../Pages/Dashboards/StudentsDash/MyHome";
 import MyEnrolled from "../Pages/Dashboards/StudentsDash/MyEnrolled";
 import MyHistory from "../Pages/Dashboards/StudentsDash/MyHistory";
+import Payment from "../Pages/Dashboards/StudentsDash/Payment";
+import AdminDash from "../Pages/Dashboards/AddminDash/AdminDash";
 
 export const router = createBrowserRouter([
   {
@@ -23,11 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "instructors",
-        element: (
-          <PrivateRoute>
-            <Instructors></Instructors>
-          </PrivateRoute>
-        ),
+        element: <Instructors></Instructors>,
       },
       {
         path: "classes",
@@ -45,7 +43,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myclasses",
@@ -62,6 +64,15 @@ export const router = createBrowserRouter([
       {
         path: "myhistory",
         element: <MyHistory></MyHistory>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
+      // Admin
+      {
+        path: "admindash",
+        element: <AdminDash></AdminDash>,
       },
     ],
   },

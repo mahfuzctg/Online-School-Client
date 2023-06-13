@@ -14,21 +14,40 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   //Context
-  const { createUser } = useContext(AuthContext);
-
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  //
   // onsubmit
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true });
         console.log(loggedUser);
-        Swal.fire("Registered successful.");
+
+        updateUserProfile(data.name, data.photoURL).then(() => {
+          console.log("user update successfully");
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                navigate(from, { replace: true });
+                Swal.fire("user profile update successful.");
+              }
+            });
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -69,13 +88,13 @@ const SignUp = () => {
                   <span className="label-text">Photo</span>
                 </label>
                 <input
-                  type="url"
-                  {...register("url", { required: true })}
+                  type="text"
+                  {...register("photoURL", { required: true })}
                   placeholder="Photo url"
                   className="input input-bordered"
                 />
 
-                {errors.url && (
+                {errors.photoURL && (
                   <span className="text-red-500 text-sm">
                     Photo is required
                   </span>

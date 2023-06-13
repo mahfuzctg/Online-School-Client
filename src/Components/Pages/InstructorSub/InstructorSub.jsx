@@ -5,10 +5,9 @@ const InstructorSub = ({ ins }) => {
 
   return (
     <div className=" bg-slate-100">
-      <img className="h-2/3 w-full" src={Image} alt="Shoes" />
-
-      <p>Name: {Name}</p>
-      <p>Email: {Email}</p>
+      <img className="h-2/4 w-full mb-10" src={Image} alt="Shoes" />
+      <span className="block">{Name}</span>
+      <span className="text-sm font-normal">{Email}</span>
     </div>
   );
 };

@@ -103,10 +103,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div>
-            <img
-              className="w-10 rounded-full p-1 bg-red-600"
-              src={user?.photoURL}
-            />
+            <img className="w-10 rounded-full" src={user?.photoURL} />
           </div>
         ) : (
           <>

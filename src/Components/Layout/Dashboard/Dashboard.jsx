@@ -6,10 +6,16 @@ import {
   FaAddressCard,
   FaHistory,
   FaUserCircle,
+  FaArrowLeft,
 } from "react-icons/fa";
 const Dashboard = () => {
-  const dashboardItem = (
+  const adminDashboard = (
     <>
+      <li>
+        <Link className=" no-underline" to="/">
+          <FaArrowLeft></FaArrowLeft>Back
+        </Link>
+      </li>
       <li>
         <Link className=" no-underline" to="myhome">
           <FaHome></FaHome>Home
@@ -32,6 +38,39 @@ const Dashboard = () => {
       </li>
     </>
   );
+  // User DashBoard
+  const UserDashboard = (
+    <>
+      <li>
+        <Link className=" no-underline" to="/">
+          <FaArrowLeft></FaArrowLeft>Back
+        </Link>
+      </li>
+      <li>
+        <Link className=" no-underline" to="myhome">
+          <FaHome></FaHome>Home
+        </Link>
+      </li>
+      <li>
+        <Link className=" no-underline" to="myclasses">
+          <FaReadme></FaReadme> My Classes
+        </Link>
+      </li>
+      <li>
+        <Link className=" no-underline" to="myenrolled">
+          <FaAddressCard></FaAddressCard> My Enrolled
+        </Link>
+      </li>
+      <li>
+        <Link className=" no-underline" to="myhistory">
+          <FaHistory></FaHistory> My History
+        </Link>
+      </li>
+    </>
+  );
+
+  // is admin
+  const isAdmin = true;
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -56,12 +95,14 @@ const Dashboard = () => {
             </label>
           </div>
           <div className="flex-1 px-2 mx-2 text-blue-900">
-            <FaUserCircle></FaUserCircle> Dashboard
+            <FaUserCircle></FaUserCircle>
+            {isAdmin ? <>Admin Dashboard</> : <>User Dashboard</>}
           </div>
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal ">
               {/* Navbar menu content here */}
-              {dashboardItem}
+
+              {isAdmin ? <>{adminDashboard}</> : <> {UserDashboard}</>}
             </ul>
           </div>
         </div>
@@ -72,7 +113,7 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-3"></label>
         <ul className="menu p-4 w-80 h-full bg-base-400">
           {/* Sidebar content here */}
-          {dashboardItem}
+          {isAdmin ? <>{adminDashboard}</> : <> {UserDashboard}</>}
         </ul>
       </div>
     </div>

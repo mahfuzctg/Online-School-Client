@@ -18,6 +18,8 @@ const ClassSub = ({ cla }) => {
         Name,
         Image,
         Price,
+        Instructor_name,
+        Available_seats,
         email: user.email,
       };
       fetch("http://localhost:5000/carts", {
