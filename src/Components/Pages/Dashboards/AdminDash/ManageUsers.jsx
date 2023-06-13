@@ -13,9 +13,12 @@ const ManageUsers = () => {
   });
 
   const handleAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -33,9 +36,12 @@ const ManageUsers = () => {
   };
   //  Handle Instructors
   const handleMakeInstructors = (user) => {
-    fetch(`http://localhost:5000/users/instructors/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users/instructors/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -64,9 +70,12 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${user._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users/${user._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

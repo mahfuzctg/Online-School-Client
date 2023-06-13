@@ -3,13 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
-const useAxiosSecure = () => {
-  const { logOut } = useAuth();
-  const navigate = useNavigate();
+const axiosSecure = axios.create({
+  baseURL: "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/",
+});
 
-  const axiosSecure = axios.create({
-    baseURL: "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/",
-  });
+const useAxiosSecure = () => {
+  const { logOutUser } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -27,13 +27,13 @@ const useAxiosSecure = () => {
           error.response &&
           (error.response.status === 401 || error.response.status === 403)
         ) {
-          // await logOut();
-          // navigate("/login");
+          await logOutUser();
+          navigate("/login");
         }
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate, axiosSecure]);
+  }, [logOutUser, navigate]);
 
   return [axiosSecure];
 };

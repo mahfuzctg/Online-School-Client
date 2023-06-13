@@ -1,7 +1,7 @@
 ## Live Link :
 
 Hosted by firebase-> [Online School](https://online-school-9a6a3.web.app/)
-
+#admin_email (mahfuz@gmail.com)
 ##Assignment_12 Online School
 listed here what i did in this project.
 -created nav and header
