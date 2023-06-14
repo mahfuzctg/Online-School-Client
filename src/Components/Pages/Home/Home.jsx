@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructor from "../../PopularInstructor/PopularInstructor";
+import Students from "../Students";
 const Home = () => {
   return (
     <>
@@ -12,9 +13,9 @@ const Home = () => {
         <title>Online School | Home</title>
       </Helmet>
       <Banner></Banner>
-
       <PopularClass></PopularClass>
       <PopularInstructor></PopularInstructor>
+      <Students></Students>
     </>
   );
 };

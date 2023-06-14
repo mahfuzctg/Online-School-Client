@@ -15,11 +15,13 @@ import Payment from "../Pages/Dashboards/StudentsDash/Payment";
 import ManageClasses from "../Pages/Dashboards/AdminDash/ManageClasses";
 import ManageUsers from "../Pages/Dashboards/AdminDash/ManageUsers";
 import AdminHome from "../Pages/Dashboards/AdminDash/AdminHome";
+import Error from "../../Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

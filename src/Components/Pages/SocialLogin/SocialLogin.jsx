@@ -17,13 +17,16 @@ const SocialLogin = () => {
         name: loggedUser.displayName,
         email: loggedUser.email,
       };
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
+      fetch(
+        "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });

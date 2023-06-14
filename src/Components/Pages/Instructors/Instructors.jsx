@@ -4,7 +4,9 @@ import InstructorSub from "../instructorSub/instructorSub";
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch(
+      "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/instructors"
+    )
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);

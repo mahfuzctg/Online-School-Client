@@ -22,13 +22,16 @@ const ClassSub = ({ cla }) => {
         Available_seats,
         email: user.email,
       };
-      fetch("http://localhost:5000/carts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(selectClass),
-      })
+      fetch(
+        "https://online-school-server-2xblin5so-mahfuzctg.vercel.app/carts",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(selectClass),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {

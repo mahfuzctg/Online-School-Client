@@ -1,14 +1,18 @@
-import React, { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../Providers/AuthProviders";
+import useAuth from "./useAuth";
 const useCarts = () => {
-  const { user } = useContext(AuthContext);
-
+  const { user } = useAuth();
+  const token = localStorage.getItem("access-token");
   const { refetch, data: cart = [] } = useQuery({
     queryKey: ["cards", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/carts?email=${user?.email}`
+        `https://online-school-server-2xblin5so-mahfuzctg.vercel.app/carts?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${token}`,
+          },
+        }
       );
       return res.json();
     },
